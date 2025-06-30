@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arshi Industries Pvt. Ltd. | Eco Conscious Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="https://github.com/Ozone-Dev/Aarshi-INDUSTRIES/blob/main/src/components/img/logo.png?raw=true" type="image/png">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .card-shine { 
+            position: relative; 
+            overflow: hidden; 
+        }
+        
+        .card-shine::after { 
+            content: ''; 
+            position: absolute; 
+            top: -50%; 
+            left: -50%; 
+            width: 200%; 
+            height: 200%; 
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%); 
+            transform: scale(0); 
+            transition: transform 0.6s ease, opacity 0.6s ease; 
+            opacity: 0; 
+        }
+        
+        .card-shine:hover::after { 
+            transform: scale(2); 
+            opacity: 1; 
+        }
+        
+        .animation-delay-2000 { 
+            animation-delay: 2s; 
+        }
+        
+        .animation-delay-4000 { 
+            animation-delay: 4s; 
+        }
+        
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            transform: translateY(-2px);
+        }
+        
+        .active-nav {
+            color: #10B981;
+            font-weight: 600;
+        }
+        
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+        
+        .gallery-image {
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-image:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Hero section adjustments */
+        .hero-section {
+            padding-top: 5rem;
+        }
+        
+        /* Fixed navbar styling */
+        .navbar {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .navbar-scrolled {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Product card hover effect */
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Modal transitions */
+        .modal-transition {
+            transition: all 0.3s ease;
+        }
+        
+        .modal-enter {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        
+        .modal-enter-active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .modal-exit {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .modal-exit-active {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+
+    <!-- HEADER -->
+    <header class="fixed w-full z-40 bg-white/95 backdrop-blur-lg border-b border-gray-200 navbar">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#home" class="flex items-center">
+                    <img src="https://github.com/Ozone-Dev/Aarshi-INDUSTRIES/blob/main/src/components/img/logo.png?raw=true" alt="AIPL Logo" class="h-12 w-12">
+                    <span class="text-xl font-bold tracking-tight ml-2 text-gray-800">
+                        Arshi Industries 
+                        <span class="block text-xs font-normal text-gray-600">Pvt. Ltd.</span>
+                    </span>
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#home" class="nav-link text-gray-600 hover:text-green-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                    <a href="#about" class="nav-link text-gray-600 hover:text-green-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+                    <a href="#products" class="nav-link text-gray-600 hover:text-green-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Products</a>
+                    <a href="#gallery" class="nav-link text-gray-600 hover:text-green-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Gallery</a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-green-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
+                    <button id="open-modal-btn-desktop" class="bg-green-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-green-600 transition-colors shadow-md hover:shadow-lg">
+                        Book Appointment
+                    </button>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-green-500 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">About</a>
+                <a href="#products" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Products</a>
+                <a href="#gallery" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Gallery</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Contact</a>
+                <button id="open-modal-btn-mobile" class="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">
+                    Book Appointment
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20"> <!-- Added padding to account for fixed header -->
+        <!-- HERO SECTION -->
+        <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden hero-section">
+            <div class="absolute inset-0 bg-gradient-to-br from-green-50 to-blue-50"></div>
+            <div class="absolute inset-0">
+                <div class="absolute -top-20 -right-20 w-80 h-80 bg-green-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+                <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+                <div class="absolute top-1/4 left-1/4 w-80 h-80 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+            </div>
+            
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                <div class="text-center">
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4">
+                        <span class="block text-green-500">ReUse ReCycle GoGreen</span>
+                        <span class="block text-lg tracking-widest font-semibold text-gray-600 mt-2">
+                            Eco Conscious Solution For Sustainable Future
+                        </span>
+                    </h1>
+                    <p class="mt-4 max-w-md mx-auto text-base text-gray-600 sm:text-lg md:mt-5 md:text-lg md:max-w-3xl">
+                        Leading manufacturer in Nepal specializing in lead bricks, battery recycle solutions, and remelted lead (RML). Committed to environmental sustainability and innovation.
+                    </p>
+                    
+                    <div class="mt-10 flex justify-center space-x-4">
+                        <a href="#contact" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-500 hover:bg-green-600 transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
+                            Get Started
+                        </a>
+                        <a href="#about" class="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-green-600 bg-white hover:bg-gray-50 transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Card 1 -->
+                    <div class="relative group card-shine bg-white/80 backdrop-blur-sm rounded-xl shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="p-2 bg-green-100 rounded-lg">
+                                    <svg class="h-6 w-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM8.5 14.5A2.5 2.5 0 0011 12a2.5 2.5 0 00-2.5-2.5V7a2.5 2.5 0 00-5 0v2.5a2.5 2.5 0 002.5 2.5z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="text-lg font-medium text-gray-800 ml-3">Battery Recycle Solutions</h3>
+                            </div>
+                            <p class="mt-2 text-sm text-gray-600">
+                                Eco-friendly battery manufacturing and recycling processes that reduce environmental impact.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="relative group card-shine bg-white/80 backdrop-blur-sm rounded-xl shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="p-2 bg-green-100 rounded-lg">
+                                    <svg class="h-6 w-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a10 10 0 00-10 10c0 4.418 3.582 8 8 8s8-3.582 8-8a10 10 0 00-10-10zM12 18c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12a2 2 0 100-4 2 2 0 000 4z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="text-lg font-medium text-gray-800 ml-3">Lead Bricks</h3>
+                            </div>
+                            <p class="mt-2 text-sm text-gray-600">
+                                High-quality, environmentally conscious lead products for various industrial applications.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3 -->
+                    <div class="relative group card-shine bg-white/80 backdrop-blur-sm rounded-xl shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="p-2 bg-green-100 rounded-lg">
+                                    <svg class="h-6 w-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2-1.343-2-3-2z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 11V7a5 5 0 00-10 0v4m5-4h.01"/>
+                                    </svg>
+                                </div>
+                                <h3 class="text-lg font-medium text-gray-800 ml-3">Remelted Lead (RML)</h3>
+                            </div>
+                            <p class="mt-2 text-sm text-gray-600">
+                                High purity and consistent quality remelted lead for industrial and manufacturing uses.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ABOUT SECTION -->
+        <section id="about" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">About Arshi Industries</h2>
+                    <p class="mt-4 text-xl text-gray-600">Pioneering sustainable solutions since 2010</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="relative rounded-xl overflow-hidden shadow-lg">
+                        <img src="https://github.com/Ozone-Dev/Aarshi-INDUSTRIES/blob/main/src/components/img/img1.JPG?raw=true" alt="About Arshi Industries" class="w-full h-auto object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                            <h3 class="text-white text-xl font-semibold">Our Manufacturing Facility</h3>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Our Mission</h3>
+                        <p class="text-gray-600 mb-6">
+                            At Arshi Industries Pvt. Ltd., we are committed to providing eco-conscious solutions that bridge the gap between industrial needs and environmental responsibility. Our mission is to lead the way in sustainable manufacturing practices while delivering high-quality products to our clients across Asia.
+                        </p>
+                        
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Our Story</h3>
+                        <p class="text-gray-600 mb-6">
+                            Founded in 2010, Arshi Industries has grown from a small local operation to a regional leader in lead products and recycling solutions. Our journey has been guided by our core values of sustainability, innovation, and quality.
+                        </p>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-green-600 mb-2">10+ Years</h4>
+                                <p class="text-sm text-gray-600">Of industry experience</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-green-600 mb-2">50+ Employees</h4>
+                                <p class="text-sm text-gray-600">Dedicated team</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-green-600 mb-2">1000+ Clients</h4>
+                                <p class="text-sm text-gray-600">Across Asia</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-green-600 mb-2">ISO Certified</h4>
+                                <p class="text-sm text-gray-600">Quality standards</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCTS SECTION -->
+        <section id="products" class="py-20 bg-gradient-to-br from-green-50 to-blue-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">Our Products</h2>
+                    <p class="mt-4 text-xl text-gray-600">Innovative Solutions for a Sustainable Future</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Product 1 -->
+                    <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://www.gravitaindia.com/Upload/Images/thumbnail/Battery-Recycling-Lead.webp" alt="Battery Recycling - Lead" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <svg class="h-6 w-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM8.5 14.5A2.5 2.5 0 0011 12a2.5 2.5 0 00-2.5-2.5V7a2.5 2.5 0 00-5 0v2.5a2.5 2.5 0 002.5 2.5z"/>
+                                </svg>
+                                <h3 class="text-xl font-semibold text-gray-800">Battery Recycling - Lead</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">Sustainable battery solutions with advanced recycling technology.</p>
+                            <ul class="space-y-2">
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <svg class="h-4 w-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    Environmentally friendly process
+                                </li>
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <svg class="h-4 w-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    High recovery efficiency
+                                </li>
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <svg class="h-4 w-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    Regulatory compliant
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://www.gravitaindia.com/Upload/Images/thumbnail/plastic-granules-mobile-v2.webp" alt="Recycled Plastic Granules" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <svg class="h-6 w-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a10 10 0 00-10 10c0 4.418 3.582 8 8 8s8-3.582 8-8a10 10 0 00-10-10zM12 18c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12a2 2 0 100-4 2 2 0 000 4z"/>
+                                </svg>
+                                <h3 class="text-xl font-semibold text-gray-800">Recycled Plastic Granules</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">Eco-friendly, sustainable materials for a greener planet.</p>
+                            <ul class="space-y-2">
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <svg class="h-4 w-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    Multiple color options
+                                </li>
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <svg class="h-4 w-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    High quality standards
+                                </li>
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <svg class="h-4 w-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    Cost-effective solution
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://www.gravitaindia.com/Upload/Images/thumbnail/Aluminium-Recycling.webp" alt="Remelted lead (RML)" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <svg class="h-6 w-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2-1.343-2-3-2z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 11V7a5 5 0 00-10 0v4m5-4h.01"/>
+                                </svg>
+                                <h3 class="text-xl font-semibold text-gray-800">Remelted Lead (RML)</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">High-quality remelted lead for industrial applications.</p>
+                            <ul class="space-y-2">
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <svg class="h-4 w-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    99.97% purity
+                                </li>
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <svg class="h-4 w-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    Custom formulations
+                                </li>
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <svg class="h-4 w-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    Consistent quality
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY SECTION -->
+        <section id="gallery" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">Our Gallery</h2>
+                    <p class="mt-4 text-xl text-gray-600">A glimpse into our operations and products</p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="gallery-grid">
+                    <!-- Images will be inserted here by JavaScript -->
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="#contact" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-500 hover:bg-green-600 transition-colors duration-300">
+                        Request More Photos
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- MAP SECTION -->
+        <section id="map" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">Our Global Presence</h2>
+                    <p class="mt-4 text-xl text-gray-600">Serving Asia from our base in Nepal</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-2">
+                        <div class="h-96 lg:h-full">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3539.348924588447!2d83.47132907545966!3d27.48952197630807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjfCsDI5JzIyLjMiTiA4M8KwMjgnMjYuMSJF!5e0!3m2!1sen!2snp!4v1737356332228!5m2!1sen!2snp" 
+                                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade" class="w-full h-full"></iframe>
+                        </div>
+                        
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6">Market Coverage</h3>
+                            <div class="space-y-4 mb-8">
+                                <div class="flex items-center">
+                                    <div class="h-3 w-3 rounded-full bg-green-500 mr-3"></div>
+                                    <span class="text-gray-700">Nepal</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="h-3 w-3 rounded-full bg-green-500 mr-3"></div>
+                                    <span class="text-gray-700">India</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="h-3 w-3 rounded-full bg-green-500 mr-3"></div>
+                                    <span class="text-gray-700">Bangladesh</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="h-3 w-3 rounded-full bg-green-500 mr-3"></div>
+                                    <span class="text-gray-700">Sri Lanka</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="h-3 w-3 rounded-full bg-green-500 mr-3"></div>
+                                    <span class="text-gray-700">And expanding across Asia</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <h3 class="text-2xl font-bold text-gray-800 mb-4">Headquarters</h3>
+                                <address class="text-gray-700 not-italic">
+                                    Bhairahawa, SEZ (Special Economic Zone)<br>
+                                    Lumbini, Nepal<br><br>
+                                    <strong>Phone:</strong> +977 985-7028693<br>
+                                    <strong>Email:</strong> info@Arshiindustries.com
+                                </address>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">Get in Touch</h2>
+                    <p class="mt-4 text-xl text-gray-600">We'd love to hear from you</p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div class="bg-white rounded-2xl shadow-lg p-8">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Send us a message</h3>
+                        
+                        <form id="contact-form" action="https://formspree.io/f/xdkzplva" method="POST" class="space-y-6">
+                            <input type="hidden" name="_subject" value="New message from Arshi Website!">
+                            
+                            <div>
+                                <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                                <input type="text" name="name" id="contact-name" required 
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500">
+                            </div>
+                            
+                            <div>
+                                <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" name="email" id="contact-email" required 
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500">
+                            </div>
+                            
+                            <div>
+                                <label for="contact-phone" class="block text-sm font-medium text-gray-700 mb-1">Phone (Optional)</label>
+                                <input type="tel" name="phone" id="contact-phone" 
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500">
+                            </div>
+                            
+                            <div>
+                                <label for="contact-message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                                <textarea id="contact-message" name="message" rows="5" required 
+                                          class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"></textarea>
+                            </div>
+                            
+                            <button type="submit" 
+                                    class="w-full bg-green-500 text-white py-3 px-6 rounded-md font-medium hover:bg-green-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-gray-50 rounded-xl p-8 shadow-lg">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Contact Information</h3>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <svg class="h-6 w-6 text-green-500 mt-1 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                    </svg>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800">Phone</h4>
+                                        <p class="text-gray-600">+977 985-7028693</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <svg class="h-6 w-6 text-green-500 mt-1 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                    </svg>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800">Email</h4>
+                                        <p class="text-gray-600">info@Arshiindustries.com</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <svg class="h-6 w-6 text-green-500 mt-1 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    </svg>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800">Address</h4>
+                                        <p class="text-gray-600">Bhairahawa, SEZ (Special Economic Zone)<br>Lumbini, Nepal</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-xl p-8 shadow-lg">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Business Hours</h3>
+                            
+                            <div class="space-y-3 text-gray-700">
+                                <div class="flex justify-between">
+                                    <span>Monday - Friday</span>
+                                    <span class="font-medium">9:00 AM - 6:00 PM</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Saturday</span>
+                                    <span class="font-medium">9:00 AM - 1:00 PM</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Sunday</span>
+                                    <span class="font-medium">Closed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-800 text-gray-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center">
+                        <img src="https://github.com/Ozone-Dev/Aarshi-INDUSTRIES/blob/main/src/components/img/logo.png?raw=true" alt="AIPL Logo" class="h-12 w-12">
+                        <span class="text-xl font-bold ml-3 text-white">Arshi Industries Pvt. Ltd.</span>
+                    </div>
+                    <p class="mt-4 text-sm">
+                        Pioneering sustainable solutions across Asia since 2010. Committed to environmental responsibility and industrial excellence.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#products" class="hover:text-white transition-colors">Products</a></li>
+                        <li><a href="#gallery" class="hover:text-white transition-colors">Gallery</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-semibold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-sm text-center">
+                <p>© <span id="current-year"></span> Arshi Industries Pvt. Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox" class="hidden fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
+        <button id="lightbox-close" class="absolute top-4 right-4 text-white text-3xl bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-80 focus:outline-none">
+            ✕
+        </button>
+        <button id="lightbox-prev" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-3xl bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-80 focus:outline-none">
+            ←
+        </button>
+        
+        <div class="max-w-4xl w-full max-h-[90vh]">
+            <img id="lightbox-img" src="" alt="" class="w-full h-full object-contain rounded-lg">
+            <p id="lightbox-title" class="text-center text-white mt-4 text-lg"></p>
+        </div>
+        
+        <button id="lightbox-next" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-3xl bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-80 focus:outline-none">
+            →
+        </button>
+    </div>
+
+    <!-- APPOINTMENT MODAL -->
+    <div id="appointment-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div id="modal-overlay" class="absolute inset-0 bg-black/50"></div>
+        
+        <div class="relative bg-white rounded-xl p-8 w-full max-w-md z-10">
+            <button id="close-modal-btn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+            
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">Book an Appointment</h2>
+            
+            <form id="appointment-form" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                    <input type="text" name="name" required 
+                           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" name="email" required 
+                           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                    <input type="tel" name="phone" required 
+                           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Date</label>
+                    <input type="date" name="date" required 
+                           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500" 
+                           min="">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Time</label>
+                    <input type="time" name="time" required 
+                           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Message (Optional)</label>
+                    <textarea name="message" rows="3" 
+                              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"></textarea>
+                </div>
+                
+                <button type="submit" 
+                        class="w-full bg-green-500 text-white px-4 py-3 rounded-md hover:bg-green-600 transition-colors font-semibold focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+                    Book Appointment
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SUCCESS POPUP -->
+    <div id="success-popup" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div id="success-overlay" class="absolute inset-0 bg-black/50"></div>
+        
+        <div class="relative bg-white rounded-xl p-8 w-full max-w-sm text-center z-10">
+            <button id="close-popup-btn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 focus:outline-none">
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+            
+            <svg class="h-12 w-12 text-green-500 mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Booking Successful!</h3>
+            <p id="success-message" class="text-sm text-gray-600"></p>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when clicking on links
+            document.querySelectorAll('.mobile-menu-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+            
+            // Appointment modal functionality
+            const modal = document.getElementById('appointment-modal');
+            const openModalBtns = [
+                document.getElementById('open-modal-btn-desktop'),
+                document.getElementById('open-modal-btn-mobile')
+            ];
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            const modalOverlay = document.getElementById('modal-overlay');
+            
+            const openModal = () => {
+                modal.classList.remove('hidden');
+                // Set minimum date to today
+                document.querySelector('input[type="date"]').min = new Date().toISOString().split("T")[0];
+            };
+            
+            const closeModal = () => {
+                modal.classList.add('hidden');
+            };
+            
+            openModalBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    openModal();
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+            
+            closeModalBtn.addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', closeModal);
+            
+            // Success popup functionality
+            const successPopup = document.getElementById('success-popup');
+            const closePopupBtn = document.getElementById('close-popup-btn');
+            const successOverlay = document.getElementById('success-overlay');
+            const successMessageEl = document.getElementById('success-message');
+            
+            const showSuccessPopup = (name, date, time) => {
+                successMessageEl.textContent = `Thank you ${name}! Your appointment has been requested for ${date} at ${time}. We'll send you a confirmation email shortly.`;
+                successPopup.classList.remove('hidden');
+            };
+            
+            const closeSuccessPopup = () => {
+                successPopup.classList.add('hidden');
+            };
+            
+            closePopupBtn.addEventListener('click', closeSuccessPopup);
+            successOverlay.addEventListener('click', closeSuccessPopup);
+            
+            // Form submissions
+            const appointmentForm = document.getElementById('appointment-form');
+            const contactForm = document.getElementById('contact-form');
+            
+            appointmentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const data = Object.fromEntries(new FormData(this).entries());
+                
+                // Here you would typically send the data to your server
+                // For demonstration, we'll just show the success popup
+                closeModal();
+                showSuccessPopup(data.name, data.date, data.time);
+                this.reset();
+            });
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const data = new FormData(this);
+                
+                fetch(this.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        alert('Thank you for your message! We will get back to you soon.');
+                        this.reset();
+                    } else {
+                        alert('Oops! There was a problem submitting your form.');
+                    }
+                }).catch(() => {
+                    alert('Oops! There was a problem submitting your form.');
+                });
+            });
+            
+            // Gallery functionality
+            const galleryImages = [
+                { src: "https://github.com/Ozone-Dev/Aarshi-INDUSTRIES/blob/main/src/components/img/img1.JPG?raw=true", title: "Battery Recycling" },
+                { src: "https://github.com/Ozone-Dev/Aarshi-INDUSTRIES/blob/main/src/components/img/img12.JPG?raw=true", title: "Plastic Granules" },
+                { src: "https://github.com/Ozone-Dev/Aarshi-INDUSTRIES/blob/main/src/components/img/img4.JPG?raw=true", title: "Lead Ingots" },
+                { src: "https://github.com/Ozone-Dev/Aarshi-INDUSTRIES/blob/main/src/components/img/img8.JPG?raw=true", title: "Furnace" },
+                { src: "https://github.com/Ozone-Dev/Aarshi-INDUSTRIES/blob/main/src/components/img/img2.JPG?raw=true", title: "Operations" },
+                { src: "https://github.com/Ozone-Dev/Aarshi-INDUSTRIES/blob/main/src/components/img/img6.JPG?raw=true", title: "Machinery" },
+                { src: "https://github.com/Ozone-Dev/Aarshi-INDUSTRIES/blob/main/src/components/img/img.jpg?raw=true", title: "Raw Materials" },
+                { src: "https://github.com/Ozone-Dev/Aarshi-INDUSTRIES/blob/main/src/components/img/img5.JPG?raw=true", title: "Processing" },
+                { src: "https://github.com/Ozone-Dev/Aarshi-INDUSTRIES/blob/main/src/components/img/img9.JPG?raw=true", title: "Quality Check" },
+                { src: "https://github.com/Ozone-Dev/Aarshi-INDUSTRIES/blob/main/src/components/img/img11.JPG?raw=true", title: "Final Product" }
+            ];
+            
+            const galleryGrid = document.getElementById('gallery-grid');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxTitle = document.getElementById('lightbox-title');
+            let currentImageIndex = 0;
+            
+            // Populate gallery grid
+            galleryImages.forEach((img, index) => {
+                const div = document.createElement('div');
+                div.className = 'relative group overflow-hidden rounded-lg shadow-md cursor-pointer gallery-image';
+                
+                div.innerHTML = `
+                    <img src="${img.src}" alt="${img.title}" class="w-full h-48 object-cover transition-transform duration-300">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-opacity duration-300">
+                        <span class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium">${img.title}</span>
+                    </div>
+                `;
+                
+                div.addEventListener('click', () => openLightbox(index));
+                galleryGrid.appendChild(div);
+            });
+            
+            // Lightbox functions
+            const openLightbox = (index) => {
+                currentImageIndex = index;
+                updateLightboxImage();
+                lightbox.classList.remove('hidden');
+            };
+            
+            const closeLightbox = () => {
+                lightbox.classList.add('hidden');
+            };
+            
+            const nextImage = () => {
+                currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+                updateLightboxImage();
+            };
+            
+            const prevImage = () => {
+                currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+                updateLightboxImage();
+            };
+            
+            const updateLightboxImage = () => {
+                lightboxImg.src = galleryImages[currentImageIndex].src;
+                lightboxTitle.textContent = galleryImages[currentImageIndex].title;
+            };
+            
+            document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+            document.getElementById('lightbox-next').addEventListener('click', nextImage);
+            document.getElementById('lightbox-prev').addEventListener('click', prevImage);
+            
+            // Keyboard navigation for lightbox
+            document.addEventListener('keydown', (e) => {
+                if (!lightbox.classList.contains('hidden')) {
+                    if (e.key === 'Escape') {
+                        closeLightbox();
+                    } else if (e.key === 'ArrowRight') {
+                        nextImage();
+                    } else if (e.key === 'ArrowLeft') {
+                        prevImage();
+                    }
+                }
+            });
+            
+            // Active nav link on scroll
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (pageYOffset >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('text-green-500', 'font-semibold');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('text-green-500', 'font-semibold');
+                    }
+                });
+            });
+            
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) {
+                    navbar.classList.add('navbar-scrolled');
+                } else {
+                    navbar.classList.remove('navbar-scrolled');
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
